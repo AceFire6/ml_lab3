@@ -67,7 +67,7 @@ int main() {
         cout << "Enter x3: ";
         cin >> x3;
 
-        cout << linear_perceptron.compute(x0, x1, x2, x3) << endl;
+        cout << "Perceptron Output: " << linear_perceptron.compute(x0, x1, x2, x3) << endl;
         char answer;
         cout << "Test again?(y/n) ";
         cin >> answer;
