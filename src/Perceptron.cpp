@@ -10,26 +10,17 @@ namespace MLLJET001 {
         for (int i = 0; i < iterations; ++i) {
             int errors = 0;
             for (auto data : trainingData) {
-                int target = (int)data[4];
-                // only affects the temp data variable
-                // Makes code less messy and accounts for the bias term.
-                data[4] = 1;
-                int output = -1;
-
+                float target = data[4];
 
                 float input_sum = 0;
                 for (int j=0; j < weights.size(); j++) {
                     input_sum += data[j] * weights[j];
                 }
 
-                if (input_sum > 0) {
-                    output = 1;
-                }
-
-                if (output != target) {
+                if (input_sum != target) {
                     errors += 1;
                     for (int j=0; j < weights.size(); j++) {
-                        weights[j] += learningRate * (target - output) * data[j];
+                        weights[j] += learningRate * (target - input_sum) * data[j];
                     }
                 }
             }
@@ -39,16 +30,17 @@ namespace MLLJET001 {
                 break;
             }
         }
+        std::cout << "Iterations: " << iterations << std::endl;
     }
 
     /**
      * Computes the output of the perceptron with the
      * given inputs.
      */
-    int Perceptron::compute(float in1, float in2, float in3, float in4) {
+    float Perceptron::compute(float in1, float in2, float in3, float in4) {
         float input_sum = (in1 * weights[0]) + (in2 * weights[1]) + (in3 * weights[2])
                           + (in4 * weights[3]) + weights[4];
         std::cout << "Weight Sum: " << input_sum << std::endl;
-        return ((input_sum > 0) ? 1 : -1);
+        return input_sum;
     }
 };

@@ -44,13 +44,13 @@ MLLJET001::Perceptron doTraining(int iterations, float learningRate) {
     cout << "W2: " << perceptron.weights[1] << endl;
     cout << "W3: " << perceptron.weights[2] << endl;
     cout << "W4: " << perceptron.weights[3] << endl;
-    cout << "Bias: " << perceptron.weights[4] << endl;
+//    cout << "Bias: " << perceptron.weights[4] << endl;
 
     return perceptron;
 }
 
 int main() {
-    MLLJET001::Perceptron linear_perceptron = doTraining(1000, 0.1);
+    MLLJET001::Perceptron linear_perceptron = doTraining(1000000, 0.1);
 
     cout << "Perceptron trained!" << endl << endl;
 

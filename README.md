@@ -8,6 +8,6 @@
 
 ## Answers
 
-1. It takes 4 iterations if the weights are all set to 0 to start with. 
+1.  
 
-2. 
+2. It takes 4 iterations if the weights are all set to 0 to start with.

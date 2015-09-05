@@ -8,7 +8,7 @@ namespace MLLJET001 {
         private:
             std::vector<std::vector<float>> trainingData;
         public:
-            Perceptron(std::vector<std::vector<float>> trainingData) : weights(5, 0.0F) {
+            Perceptron(std::vector<std::vector<float>> trainingData) : weights(4, 0.0F) {
                 this->trainingData.resize(trainingData.size());
                 for (int i = 0; i < trainingData.size(); ++i) {
                     this->trainingData[i] = std::move(trainingData[i]);
@@ -33,7 +33,7 @@ namespace MLLJET001 {
              * Computes the output of the perceptron with the
              * given inputs.
              */
-            int compute(float in1, float in2, float in3, float in4);
+            float compute(float in1, float in2, float in3, float in4);
     };
 }
 
