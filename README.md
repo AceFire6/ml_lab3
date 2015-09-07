@@ -8,6 +8,6 @@
 
 ## Answers
 
-1.  
+1. It takes 118 iterations if you add rounding to 3 decimal places, otherwise it never converges.
 
 2. It takes 4 iterations if the weights are all set to 0 to start with.
