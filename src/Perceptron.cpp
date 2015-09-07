@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include "Perceptron.h"
 
 namespace MLLJET001 {
@@ -7,6 +8,7 @@ namespace MLLJET001 {
      * it trains it. It does iterations passes over the training data.
      */
     void Perceptron::trainPerceptron(int iterations, float learningRate) {
+        bool broke = false;
         for (int i = 0; i < iterations; ++i) {
             int errors = 0;
             for (auto data : trainingData) {
@@ -27,10 +29,13 @@ namespace MLLJET001 {
 
             if (errors == 0) {
                 std::cout << "Iterations: " << i+1 << std::endl;
+                broke = true;
                 break;
             }
         }
-        std::cout << "Iterations: " << iterations << std::endl;
+        if (!broke) {
+            std::cout << "Iterations: " << iterations << std::endl;
+        }
     }
 
     /**
