@@ -19,6 +19,8 @@ namespace MLLJET001 {
                     input_sum += data[j] * weights[j];
                 }
 
+                input_sum =  (float)ceil(input_sum*1000)/1000;
+
                 if (input_sum != target) {
                     errors += 1;
                     for (int j=0; j < weights.size(); j++) {
@@ -46,6 +48,6 @@ namespace MLLJET001 {
         float input_sum = (in1 * weights[0]) + (in2 * weights[1]) + (in3 * weights[2])
                           + (in4 * weights[3]) + weights[4];
         std::cout << "Weight Sum: " << input_sum << std::endl;
-        return input_sum;
+        return  (float) ceil(input_sum * 1000) / 1000;
     }
 };
