@@ -8,6 +8,6 @@
 
 ## Answers
 
-1. It takes 118 iterations if you add rounding to 3 decimal places, otherwise it never converges.
+1. It takes 60 iterations if you stop learning once the error rate is below 0.001F
 
 2. It takes 4 iterations if the weights are all set to 0 to start with.

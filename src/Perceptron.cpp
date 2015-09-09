@@ -10,7 +10,7 @@ namespace MLLJET001 {
     void Perceptron::trainPerceptron(int iterations, float learningRate) {
         bool broke = false;
         for (int i = 0; i < iterations; ++i) {
-            int errors = 0;
+            float error = 0;
             for (auto data : trainingData) {
                 float target = data[4];
 
@@ -19,17 +19,17 @@ namespace MLLJET001 {
                     input_sum += data[j] * weights[j];
                 }
 
-                input_sum =  (float)ceil(input_sum*1000)/1000;
-
                 if (input_sum != target) {
-                    errors += 1;
+                    error += pow(target - input_sum, 2);
                     for (int j=0; j < weights.size(); j++) {
                         weights[j] += learningRate * (target - input_sum) * data[j];
                     }
                 }
             }
 
-            if (errors == 0) {
+            error *= 0.5F;
+
+            if (error < 0.001F) {
                 std::cout << "Iterations: " << i+1 << std::endl;
                 broke = true;
                 break;
