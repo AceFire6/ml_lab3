@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <cmath>
 #include "Perceptron.h"
 
 using namespace std;
@@ -44,7 +45,6 @@ MLLJET001::Perceptron doTraining(int iterations, float learningRate) {
     cout << "W2: " << perceptron.weights[1] << endl;
     cout << "W3: " << perceptron.weights[2] << endl;
     cout << "W4: " << perceptron.weights[3] << endl;
-//    cout << "Bias: " << perceptron.weights[4] << endl;
 
     return perceptron;
 }
@@ -67,7 +67,7 @@ int main() {
         cout << "Enter x3: ";
         cin >> x3;
 
-        cout << "Perceptron Output: " << linear_perceptron.compute(x0, x1, x2, x3) << endl;
+        cout << "Perceptron Output: " << roundf(linear_perceptron.compute(x0, x1, x2, x3)) << endl;
         char answer;
         cout << "Test again?(y/n) ";
         cin >> answer;

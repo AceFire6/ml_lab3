@@ -47,7 +47,7 @@ namespace MLLJET001 {
     float Perceptron::compute(float in1, float in2, float in3, float in4) {
         float input_sum = (in1 * weights[0]) + (in2 * weights[1]) + (in3 * weights[2])
                           + (in4 * weights[3]) + weights[4];
-        std::cout << "Weight Sum: " << input_sum << std::endl;
-        return  (float) ceil(input_sum * 1000) / 1000;
+        std::cout << "Weight Sum (not rounded): " << input_sum << std::endl;
+        return  input_sum;
     }
 };
